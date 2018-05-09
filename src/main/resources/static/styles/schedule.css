@@ -1,0 +1,61 @@
+.right-float{
+    float: right !important;
+}
+
+.div-center {
+    width: 70%;
+    margin: auto;
+}
+
+.header{
+    margin-top: -20px;
+    height: 80px;
+    background-color: #563d7c; /*#5f5f5f;*/
+    color: #f1f1f1;
+    box-shadow: 0px 1px 5px #5e5e5e;
+    -webkit-box-shadow:  0px 1px 5px #5e5e5e;
+}
+
+.header h3{
+    padding-top: 15px;
+}
+
+.content {
+    margin-top: 15px;
+}
+
+.search-box {
+    text-align: right;
+    margin-top: 40px;
+}
+
+.search-box input {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.search-box i{
+    color: #f1f1f1;
+}
+
+.search-box i:hover{
+    color: lightgray;
+}
+
+.buttons-column {
+    width: 10%;
+}
+
+.buttons-column a{
+    margin-left: 20px;
+}
+
+.modal-sm {
+    width: 400px;
+}
+
+.modal-xs {
+    width: 200px;
+}
