@@ -1,4 +1,4 @@
-package vsu.dto;
+package vsu.data_operations.dto;
 
 public class StudentDTO {
     private long id;
@@ -6,6 +6,8 @@ public class StudentDTO {
     private String mail;
 
     private GroupDTO group;
+
+    private GroupDTO group_praetorian;
 
     public StudentDTO(){}
 
@@ -31,5 +33,13 @@ public class StudentDTO {
 
     public void setGroup(GroupDTO group) {
         this.group = group;
+    }
+
+    public GroupDTO getGroup_praetorian() {
+        return group_praetorian;
+    }
+
+    public void setGroup_praetorian(GroupDTO group_praetorian) {
+        this.group_praetorian = group_praetorian;
     }
 }

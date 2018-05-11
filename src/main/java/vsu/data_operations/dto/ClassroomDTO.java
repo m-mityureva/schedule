@@ -1,4 +1,7 @@
-package vsu.dto;
+package vsu.data_operations.dto;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class ClassroomDTO {
     private long id;
@@ -9,7 +12,11 @@ public class ClassroomDTO {
 
     private boolean available;
 
-    public ClassroomDTO() {}
+    private List<TeacherSubjectDTO> teacherSubjectDTOS;
+
+    public ClassroomDTO() {
+        teacherSubjectDTOS = new LinkedList<>();
+    }
 
     public long getId() {
         return id;
@@ -41,5 +48,13 @@ public class ClassroomDTO {
 
     public void setAvailable(boolean available) {
         this.available = available;
+    }
+
+    public List<TeacherSubjectDTO> getTeacherSubjectDTOS() {
+        return teacherSubjectDTOS;
+    }
+
+    public void setTeacherSubjectDTOS(List<TeacherSubjectDTO> teacherSubjectDTOS) {
+        this.teacherSubjectDTOS = teacherSubjectDTOS;
     }
 }

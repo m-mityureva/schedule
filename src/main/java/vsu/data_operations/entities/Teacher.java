@@ -1,4 +1,4 @@
-package vsu.entities;
+package vsu.data_operations.entities;
 
 import javax.persistence.*;
 import java.util.List;
@@ -17,7 +17,7 @@ public class Teacher {
     private String mail;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "teacher", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Teacher_Subject> his_subjects;
+    private List<Teacher_Subject> teacher_subjects;
 
     public Teacher() {
     }
@@ -46,11 +46,11 @@ public class Teacher {
         this.mail = mail;
     }
 
-    public List<Teacher_Subject> getHis_subjects() {
-        return his_subjects;
+    public List<Teacher_Subject> getTeacher_subjects() {
+        return teacher_subjects;
     }
 
-    public void setHis_subjects(List<Teacher_Subject> his_subjects) {
-        this.his_subjects = his_subjects;
+    public void setTeacher_subjects(List<Teacher_Subject> teacher_subjects) {
+        this.teacher_subjects = teacher_subjects;
     }
 }

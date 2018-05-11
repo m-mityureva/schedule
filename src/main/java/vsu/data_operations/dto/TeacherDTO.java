@@ -1,4 +1,7 @@
-package vsu.dto;
+package vsu.data_operations.dto;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class TeacherDTO {
     private long id;
@@ -7,7 +10,11 @@ public class TeacherDTO {
 
     private String mail;
 
-    public TeacherDTO(){}
+    private List<TeacherSubjectDTO> teacherSubjectDTOS;
+
+    public TeacherDTO(){
+        teacherSubjectDTOS = new LinkedList<>();
+    }
 
     public String getMail() {
         return mail;
@@ -31,5 +38,13 @@ public class TeacherDTO {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public List<TeacherSubjectDTO> getTeacherSubjectDTOS() {
+        return teacherSubjectDTOS;
+    }
+
+    public void setTeacherSubjectDTOS(List<TeacherSubjectDTO> teacherSubjectDTOS) {
+        this.teacherSubjectDTOS = teacherSubjectDTOS;
     }
 }

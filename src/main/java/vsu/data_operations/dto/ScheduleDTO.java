@@ -1,4 +1,7 @@
-package vsu.dto;
+package vsu.data_operations.dto;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class ScheduleDTO {
     private long id;
@@ -7,7 +10,10 @@ public class ScheduleDTO {
 
     private TeacherSubjectDTO teacher_subject;
 
+    private List<RequestDTO> requestDTOS;
+
     public ScheduleDTO() {
+        requestDTOS = new LinkedList<>();
     }
 
     public TeacherSubjectDTO getTeacher_subject() {
@@ -32,5 +38,13 @@ public class ScheduleDTO {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public List<RequestDTO> getRequestDTOS() {
+        return requestDTOS;
+    }
+
+    public void setRequestDTOS(List<RequestDTO> requestDTOS) {
+        this.requestDTOS = requestDTOS;
     }
 }

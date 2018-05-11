@@ -1,4 +1,4 @@
-package vsu.entities;
+package vsu.data_operations.entities;
 
 import javax.persistence.*;
 import java.util.List;
@@ -26,6 +26,8 @@ public class Group {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "group", cascade = CascadeType.ALL)  // orphan removal по дефолту false
     private List<Schedule> schedules;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "group", cascade = CascadeType.ALL)  // orphan removal по дефолту false
+    private List<Request> requests;
 
     public Group() {}
 
@@ -75,5 +77,13 @@ public class Group {
 
     public void setSchedules(List<Schedule> schedules) {
         this.schedules = schedules;
+    }
+
+    public List<Request> getRequests() {
+        return requests;
+    }
+
+    public void setRequests(List<Request> requests) {
+        this.requests = requests;
     }
 }

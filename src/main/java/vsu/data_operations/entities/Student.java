@@ -1,4 +1,4 @@
-package vsu.entities;
+package vsu.data_operations.entities;
 
 import javax.persistence.*;
 

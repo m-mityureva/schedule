@@ -1,8 +1,11 @@
-package vsu.dto;
+package vsu.data_operations.dto;
+
 
 import java.time.LocalDate;
+import java.util.LinkedList;
+import java.util.List;
 
-public class TimeplaceDTO {
+public class TimePlaceDTO {
     private long id;
 
     private LocalDate time_day;
@@ -13,7 +16,14 @@ public class TimeplaceDTO {
 
     private boolean odd;
 
-    public TimeplaceDTO() {}
+    private List<TeacherSubjectDTO> teacherSubjectDTOS;
+
+    private List<RequestDTO> requestDTOS;
+
+    public TimePlaceDTO() {
+        teacherSubjectDTOS = new LinkedList<>();
+        requestDTOS = new LinkedList<>();
+    }
 
     public long getId() {
         return id;
@@ -53,5 +63,21 @@ public class TimeplaceDTO {
 
     public void setOdd(boolean odd) {
         this.odd = odd;
+    }
+
+    public List<TeacherSubjectDTO> getTeacherSubjectDTOS() {
+        return teacherSubjectDTOS;
+    }
+
+    public void setTeacherSubjectDTOS(List<TeacherSubjectDTO> teacherSubjectDTOS) {
+        this.teacherSubjectDTOS = teacherSubjectDTOS;
+    }
+
+    public List<RequestDTO> getRequestDTOS() {
+        return requestDTOS;
+    }
+
+    public void setRequestDTOS(List<RequestDTO> requestDTOS) {
+        this.requestDTOS = requestDTOS;
     }
 }

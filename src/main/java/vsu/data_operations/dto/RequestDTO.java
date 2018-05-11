@@ -1,4 +1,4 @@
-package vsu.dto;
+package vsu.data_operations.dto;
 
 public class RequestDTO {
     private long id;
@@ -7,7 +7,7 @@ public class RequestDTO {
 
     private ScheduleDTO schedule;
 
-    private TimeplaceDTO time_place;
+    private TimePlaceDTO time_place;
 
     private Boolean approved;
 
@@ -32,11 +32,11 @@ public class RequestDTO {
         this.approved = approved;
     }
 
-    public TimeplaceDTO getTime_place() {
+    public TimePlaceDTO getTime_place() {
         return time_place;
     }
 
-    public void setTime_place(TimeplaceDTO time_place) {
+    public void setTime_place(TimePlaceDTO time_place) {
         this.time_place = time_place;
     }
 

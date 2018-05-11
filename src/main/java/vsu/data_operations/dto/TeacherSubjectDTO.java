@@ -1,4 +1,7 @@
-package vsu.dto;
+package vsu.data_operations.dto;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class TeacherSubjectDTO {
     private long id;
@@ -9,9 +12,12 @@ public class TeacherSubjectDTO {
 
     private ClassroomDTO classroom;
 
-    private TimeplaceDTO time_place;
+    private TimePlaceDTO time_place;
+
+    private List<ScheduleDTO> scheduleDTOS;
 
     public TeacherSubjectDTO() {
+        scheduleDTOS = new LinkedList<>();
     }
 
     public long getId() {
@@ -46,11 +52,19 @@ public class TeacherSubjectDTO {
         this.classroom = classroom;
     }
 
-    public TimeplaceDTO getTime_place() {
+    public TimePlaceDTO getTime_place() {
         return time_place;
     }
 
-    public void setTime_place(TimeplaceDTO time_place) {
+    public void setTime_place(TimePlaceDTO time_place) {
         this.time_place = time_place;
+    }
+
+    public List<ScheduleDTO> getSchedules() {
+        return scheduleDTOS;
+    }
+
+    public void setSchedules(List<ScheduleDTO> schedules) {
+        this.scheduleDTOS = schedules;
     }
 }
