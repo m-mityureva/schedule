@@ -5,9 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/login")
 public class LoginController {
-    @RequestMapping(value = {"/login"}, method = RequestMethod.GET)
+
+
+    @RequestMapping(value = {"/"}, method = RequestMethod.GET)
     public String login(){
         return "default";
     }

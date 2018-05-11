@@ -1,13 +1,28 @@
 package vsu.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+import vsu.data_operations.services.GroupService;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/schedule")
 public class ScheduleController {
-    @RequestMapping(value = {"/schedule"}, method = RequestMethod.GET)
+    private final GroupService groupService;
+
+    public ScheduleController(GroupService groupService) {
+        this.groupService = groupService;
+    }
+
+    @GetMapping("/{name}")
+    public @ResponseBody
+    ModelAndView get(@PathVariable String name, Model model) {
+        return new ModelAndView(name);
+    }
+
+
+    @RequestMapping(value = {"/"}, method = RequestMethod.GET)
     public String index(){
         return "login";
     }

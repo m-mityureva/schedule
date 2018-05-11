@@ -26,7 +26,7 @@ public class Teacher_Subject {
     @JoinColumn(name = "ID_Subject")
     private Subject subject;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "schedule", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "teacher_subject", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Schedule> schedules;
 
     public Teacher_Subject() {
