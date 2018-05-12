@@ -5,9 +5,9 @@ public class StudentDTO {
 
     private String mail;
 
-    private GroupDTO group;
+    private StudentGroupDTO group;
 
-    private GroupDTO group_praetorian;
+    private StudentGroupDTO group_praetorian;
 
     public StudentDTO(){}
 
@@ -27,19 +27,19 @@ public class StudentDTO {
         this.mail = mail;
     }
 
-    public GroupDTO getGroup() {
+    public StudentGroupDTO getGroup() {
         return group;
     }
 
-    public void setGroup(GroupDTO group) {
+    public void setGroup(StudentGroupDTO group) {
         this.group = group;
     }
 
-    public GroupDTO getGroup_praetorian() {
+    public StudentGroupDTO getGroup_praetorian() {
         return group_praetorian;
     }
 
-    public void setGroup_praetorian(GroupDTO group_praetorian) {
+    public void setGroup_praetorian(StudentGroupDTO group_praetorian) {
         this.group_praetorian = group_praetorian;
     }
 }

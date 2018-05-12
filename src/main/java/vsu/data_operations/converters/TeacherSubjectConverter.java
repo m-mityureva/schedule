@@ -3,16 +3,16 @@ package vsu.data_operations.converters;
 import vsu.data_operations.dto.ScheduleDTO;
 import vsu.data_operations.dto.TeacherSubjectDTO;
 import vsu.data_operations.entities.Schedule;
-import vsu.data_operations.entities.Teacher_Subject;
+import vsu.data_operations.entities.TeacherSubject;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class TeacherSubjectConverter {
-    public static Teacher_Subject DTO_to_Entity(TeacherSubjectDTO teacherSubjectDTO){
+    public static TeacherSubject DTO_to_Entity(TeacherSubjectDTO teacherSubjectDTO){
         if(teacherSubjectDTO == null)
             return null;
-        Teacher_Subject teacher_subject = new Teacher_Subject();
+        TeacherSubject teacher_subject = new TeacherSubject();
 
         teacher_subject.setId(teacherSubjectDTO.getId());
         teacher_subject.setClassroom(ClassroomConverter.DTO_to_Entity(teacherSubjectDTO.getClassroom()));
@@ -30,7 +30,7 @@ public class TeacherSubjectConverter {
         return teacher_subject;
     }
 
-    public static TeacherSubjectDTO Entity_To_DTO(Teacher_Subject teacher_subject){
+    public static TeacherSubjectDTO Entity_To_DTO(TeacherSubject teacher_subject){
         if(teacher_subject == null)
             return null;
         TeacherSubjectDTO teacherSubjectDTO = new TeacherSubjectDTO();

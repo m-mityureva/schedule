@@ -10,8 +10,8 @@ public class Request {
     private long id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ID_Group")
-    private Group group;
+    @JoinColumn(name = "ID_StudentGroup")
+    private StudentGroup studentGroup;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "ID_Schedule")
@@ -46,12 +46,12 @@ public class Request {
         this.schedule = schedule;
     }
 
-    public Group getGroup() {
-        return group;
+    public StudentGroup getStudentGroup() {
+        return studentGroup;
     }
 
-    public void setGroup(Group group) {
-        this.group = group;
+    public void setStudentGroup(StudentGroup studentGroup) {
+        this.studentGroup = studentGroup;
     }
 
     public TimePlace getTimeplace() {

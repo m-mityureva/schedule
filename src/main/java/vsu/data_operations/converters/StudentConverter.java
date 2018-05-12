@@ -10,8 +10,8 @@ public class StudentConverter {
 
         Student student = new Student();
 
-        student.setGroup(GroupConverter.DTO_to_Entity(studentDTO.getGroup()));
-        student.setGroup_praetorian(GroupConverter.DTO_to_Entity(studentDTO.getGroup_praetorian()));
+        student.setStudentGroup(StudentGroupConverter.DTO_to_Entity(studentDTO.getGroup()));
+        student.setGroup_praetorian(StudentGroupConverter.DTO_to_Entity(studentDTO.getGroup_praetorian()));
         student.setId(studentDTO.getId());
         student.setMail(studentDTO.getMail());
 
@@ -24,8 +24,8 @@ public class StudentConverter {
 
         StudentDTO studentDTO = new StudentDTO();
 
-        studentDTO.setGroup(GroupConverter.Entity_to_DTO(student.getGroup()));
-        studentDTO.setGroup_praetorian(GroupConverter.Entity_to_DTO(student.getGroup_praetorian()));
+        studentDTO.setGroup(StudentGroupConverter.Entity_to_DTO(student.getStudentGroup()));
+        studentDTO.setGroup_praetorian(StudentGroupConverter.Entity_to_DTO(student.getGroup_praetorian()));
         studentDTO.setId(student.getId());
         studentDTO.setMail(student.getMail());
 

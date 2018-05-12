@@ -13,11 +13,11 @@ public class Student {
     private String mail;
 
     @ManyToOne(fetch = FetchType.LAZY)  // по дефолту optional = true
-    @JoinColumn(name = "ID_Group")
-    private Group group;
+    @JoinColumn(name = "ID_StudentGroup")
+    private StudentGroup studentGroup;
 
     @OneToOne(mappedBy = "praetor")
-    private Group group_praetorian;
+    private StudentGroup group_praetorian;
 
     public Student() {
     }
@@ -38,19 +38,19 @@ public class Student {
         this.mail = mail;
     }
 
-    public Group getGroup() {
-        return group;
+    public StudentGroup getStudentGroup() {
+        return studentGroup;
     }
 
-    public void setGroup(Group group) {
-        this.group = group;
+    public void setStudentGroup(StudentGroup studentGroup) {
+        this.studentGroup = studentGroup;
     }
 
-    public Group getGroup_praetorian() {
+    public StudentGroup getGroup_praetorian() {
         return group_praetorian;
     }
 
-    public void setGroup_praetorian(Group group_praetorian) {
+    public void setGroup_praetorian(StudentGroup group_praetorian) {
         this.group_praetorian = group_praetorian;
     }
 }

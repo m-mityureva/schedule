@@ -3,7 +3,7 @@ package vsu.data_operations.dto;
 public class RequestDTO {
     private long id;
 
-    private GroupDTO group;
+    private StudentGroupDTO group;
 
     private ScheduleDTO schedule;
 
@@ -48,11 +48,11 @@ public class RequestDTO {
         this.schedule = schedule;
     }
 
-    public GroupDTO getGroup() {
+    public StudentGroupDTO getGroup() {
         return group;
     }
 
-    public void setGroup(GroupDTO group) {
+    public void setGroup(StudentGroupDTO group) {
         this.group = group;
     }
 

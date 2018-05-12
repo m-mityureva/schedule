@@ -11,7 +11,7 @@ public class RequestConverter {
 
         request.setApproved(requestDTO.getApproved());
         request.setComment(requestDTO.getComment());
-        request.setGroup(GroupConverter.DTO_to_Entity(requestDTO.getGroup()));
+        request.setStudentGroup(StudentGroupConverter.DTO_to_Entity(requestDTO.getGroup()));
         request.setId(requestDTO.getId());
         request.setSchedule(ScheduleConverter.DTO_to_Entity(requestDTO.getSchedule()));
         request.setTimeplace(TimePlaceConverter.DTO_to_Entity(requestDTO.getTime_place()));
@@ -25,7 +25,7 @@ public class RequestConverter {
 
         requestDTO.setApproved(request.getApproved());
         requestDTO.setComment(request.getComment());
-        requestDTO.setGroup(GroupConverter.Entity_to_DTO(request.getGroup()));
+        requestDTO.setGroup(StudentGroupConverter.Entity_to_DTO(request.getStudentGroup()));
         requestDTO.setId(request.getId());
         requestDTO.setSchedule(ScheduleConverter.Entity_To_DTO(request.getSchedule()));
         requestDTO.setTime_place(TimePlaceConverter.Entity_To_DTO(request.getTimeplace()));

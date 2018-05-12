@@ -3,7 +3,7 @@ package vsu.data_operations.converters;
 import vsu.data_operations.dto.SubjectDTO;
 import vsu.data_operations.dto.TeacherSubjectDTO;
 import vsu.data_operations.entities.Subject;
-import vsu.data_operations.entities.Teacher_Subject;
+import vsu.data_operations.entities.TeacherSubject;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -18,11 +18,11 @@ public class SubjectConverter {
         subject.setNaming(subjectDTO.getNaming());
 
         List<TeacherSubjectDTO> dtos = subjectDTO.getTeacherSubjectDTOS();
-        List<Teacher_Subject> entities = new LinkedList<>();
+        List<TeacherSubject> entities = new LinkedList<>();
         for (TeacherSubjectDTO t : dtos) {
             entities.add(TeacherSubjectConverter.DTO_to_Entity(t));
         }
-        subject.setTeacher_subjects(entities);
+        subject.setTeacherSubjects(entities);
 
         return subject;
     }
@@ -36,8 +36,8 @@ public class SubjectConverter {
         subjectDTO.setNaming(subject.getNaming());
 
         List<TeacherSubjectDTO> dtos = new LinkedList<>();
-        List<Teacher_Subject> entities = subject.getTeacher_subjects();
-        for (Teacher_Subject t : entities) {
+        List<TeacherSubject> entities = subject.getTeacherSubjects();
+        for (TeacherSubject t : entities) {
             dtos.add(TeacherSubjectConverter.Entity_To_DTO(t));
         }
         subjectDTO.setTeacherSubjectDTOS(dtos);

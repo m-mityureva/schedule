@@ -21,7 +21,7 @@ public class Classroom {
     private boolean available;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "classroom", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Teacher_Subject> teacher_subjects;
+    private List<TeacherSubject> teacherSubjects;
 
     public Classroom(){}
 
@@ -57,11 +57,11 @@ public class Classroom {
         this.available = available;
     }
 
-    public List<Teacher_Subject> getTeacher_subjects() {
-        return teacher_subjects;
+    public List<TeacherSubject> getTeacherSubjects() {
+        return teacherSubjects;
     }
 
-    public void setTeacher_subjects(List<Teacher_Subject> teacher_subjects) {
-        this.teacher_subjects = teacher_subjects;
+    public void setTeacherSubjects(List<TeacherSubject> teacherSubjects) {
+        this.teacherSubjects = teacherSubjects;
     }
 }

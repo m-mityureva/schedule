@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Group")
-public class Group {
+@Table(name = "StudentGroup")
+public class StudentGroup {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -16,20 +16,23 @@ public class Group {
     @Column(name = "Course")
     private int course;
 
+    @Column(name = "SubNumber")
+    private int subnumber;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_Praetor")
     private Student praetor;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "group", cascade = CascadeType.ALL)  // orphan removal по дефолту false
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "studentGroup", cascade = CascadeType.ALL)  // orphan removal по дефолту false
     private List<Student> students;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "group", cascade = CascadeType.ALL)  // orphan removal по дефолту false
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "studentGroup", cascade = CascadeType.ALL)  // orphan removal по дефолту false
     private List<Schedule> schedules;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "group", cascade = CascadeType.ALL)  // orphan removal по дефолту false
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "studentGroup", cascade = CascadeType.ALL)  // orphan removal по дефолту false
     private List<Request> requests;
 
-    public Group() {}
+    public StudentGroup() {}
 
     public long getId() {
         return id;
@@ -85,5 +88,13 @@ public class Group {
 
     public void setRequests(List<Request> requests) {
         this.requests = requests;
+    }
+
+    public int getSubnumber() {
+        return subnumber;
+    }
+
+    public void setSubnumber(int subnumber) {
+        this.subnumber = subnumber;
     }
 }

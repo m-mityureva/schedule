@@ -1,9 +1,9 @@
-CREATE TABLE "Group" (
+CREATE TABLE "StudentGroup" (
 	"ID" serial NOT NULL,
 	"Number" integer NOT NULL,
 	"Course" integer NOT NULL,
 	"ID_Praetor" integer DEFAULT 'NULL',
-	CONSTRAINT Group_pk PRIMARY KEY ("ID")
+	CONSTRAINT StudentGroup_pk PRIMARY KEY ("ID")
 ) WITH (
   OIDS=FALSE
 );
@@ -13,7 +13,7 @@ CREATE TABLE "Group" (
 CREATE TABLE "Student" (
 	"ID" serial NOT NULL,
 	"Mail" VARCHAR(100) NOT NULL UNIQUE,
-	"ID_Group" integer DEFAULT 'NULL',
+	"ID_StudentGroup" integer DEFAULT 'NULL',
 	CONSTRAINT Student_pk PRIMARY KEY ("ID")
 ) WITH (
   OIDS=FALSE
@@ -34,7 +34,7 @@ CREATE TABLE "Teacher" (
 
 CREATE TABLE "Schedule" (
 	"ID" serial NOT NULL,
-	"ID_Group" integer NOT NULL,
+	"ID_StudentGroup" integer NOT NULL,
 	"ID_Teacher_Subject" integer NOT NULL,
 	CONSTRAINT Schedule_pk PRIMARY KEY ("ID")
 ) WITH (
@@ -78,13 +78,13 @@ CREATE TABLE "TimePlace" (
 
 
 
-CREATE TABLE "Teacher_Subject" (
+CREATE TABLE "TeacherSubject" (
 	"ID" serial NOT NULL,
 	"ID_Teacher" integer NOT NULL,
 	"ID_Subject" integer NOT NULL,
 	"ID_Classroom" integer NOT NULL,
 	"ID_TimePlace" integer NOT NULL,
-	CONSTRAINT Teacher_Subject_pk PRIMARY KEY ("ID")
+	CONSTRAINT TeacherSubject_pk PRIMARY KEY ("ID")
 ) WITH (
   OIDS=FALSE
 );
@@ -107,21 +107,21 @@ CREATE TABLE "Request" (
 
 ALTER TABLE "Group" ADD CONSTRAINT "Group_Praetor_fk" FOREIGN KEY ("ID_Praetor") REFERENCES "Student"("ID");
 
-ALTER TABLE "Student" ADD CONSTRAINT "Student_Group_fk" FOREIGN KEY ("ID_Group") REFERENCES "Group"("ID");
+ALTER TABLE "Student" ADD CONSTRAINT "Student_StudentGroup_fk" FOREIGN KEY ("ID_StudentGroup") REFERENCES "StudentGroup"("ID");
 
 
-ALTER TABLE "Schedule" ADD CONSTRAINT "Schedule_Group_fk" FOREIGN KEY ("ID_Group") REFERENCES "Group"("ID");
-ALTER TABLE "Schedule" ADD CONSTRAINT "Schedule_Teacher_Subject_fk" FOREIGN KEY ("ID_Teacher_Subject") REFERENCES "Teacher_Subject"("ID");
+ALTER TABLE "Schedule" ADD CONSTRAINT "Schedule_StudentGroup_fk" FOREIGN KEY ("ID_StudentGroup") REFERENCES "Group"("ID");
+ALTER TABLE "Schedule" ADD CONSTRAINT "Schedule_TeacherSubject_fk" FOREIGN KEY ("ID_TeacherSubject") REFERENCES "TeacherSubject"("ID");
 
 
 
 
-ALTER TABLE "Teacher_Subject" ADD CONSTRAINT "Teacher_Subject_Teacher_fk" FOREIGN KEY ("ID_Teacher") REFERENCES "Teacher"("ID");
-ALTER TABLE "Teacher_Subject" ADD CONSTRAINT "Teacher_Subject_Subject_fk" FOREIGN KEY ("ID_Subject") REFERENCES "Subject"("ID");
-ALTER TABLE "Teacher_Subject" ADD CONSTRAINT "Teacher_Subject_Classroom_fk" FOREIGN KEY ("ID_Classroom") REFERENCES "Classroom"("ID");
-ALTER TABLE "Teacher_Subject" ADD CONSTRAINT "Teacher_Subject_TimePlace_fk" FOREIGN KEY ("ID_TimePlace") REFERENCES "TimePlace"("ID");
+ALTER TABLE "TeacherSubject" ADD CONSTRAINT "TeacherSubject_Teacher_fk" FOREIGN KEY ("ID_Teacher") REFERENCES "Teacher"("ID");
+ALTER TABLE "TeacherSubject" ADD CONSTRAINT "TeacherSubject_Subject_fk" FOREIGN KEY ("ID_Subject") REFERENCES "Subject"("ID");
+ALTER TABLE "TeacherSubject" ADD CONSTRAINT "TeacherSubject_Classroom_fk" FOREIGN KEY ("ID_Classroom") REFERENCES "Classroom"("ID");
+ALTER TABLE "TeacherSubject" ADD CONSTRAINT "TeacherSubject_TimePlace_fk" FOREIGN KEY ("ID_TimePlace") REFERENCES "TimePlace"("ID");
 
-ALTER TABLE "Request" ADD CONSTRAINT "Request_Group_fk" FOREIGN KEY ("ID_Group") REFERENCES "Group"("ID");
+ALTER TABLE "Request" ADD CONSTRAINT "Request_StudentGroup_fk" FOREIGN KEY ("ID_StudentGroup") REFERENCES "StudentGroup"("ID");
 ALTER TABLE "Request" ADD CONSTRAINT "Request_Schedule_fk" FOREIGN KEY ("ID_Schedule") REFERENCES "Schedule"("ID");
 ALTER TABLE "Request" ADD CONSTRAINT "Request_TimePlace_fk" FOREIGN KEY ("ID_TimePlace") REFERENCES "TimePlace"("ID");
 

@@ -4,7 +4,7 @@ import vsu.data_operations.dto.RequestDTO;
 import vsu.data_operations.dto.TeacherSubjectDTO;
 import vsu.data_operations.dto.TimePlaceDTO;
 import vsu.data_operations.entities.Request;
-import vsu.data_operations.entities.Teacher_Subject;
+import vsu.data_operations.entities.TeacherSubject;
 import vsu.data_operations.entities.TimePlace;
 
 import java.util.LinkedList;
@@ -29,12 +29,12 @@ public class TimePlaceConverter {
         }
         timePlace.setRequests(requests);
 
-        List<Teacher_Subject> teacher_subjects = new LinkedList<>();
+        List<TeacherSubject> teacherSubjects = new LinkedList<>();
         List<TeacherSubjectDTO> teacherSubjectDTOS = timePlaceDTO.getTeacherSubjectDTOS();
         for(TeacherSubjectDTO t : teacherSubjectDTOS){
-            teacher_subjects.add(TeacherSubjectConverter.DTO_to_Entity(t));
+            teacherSubjects.add(TeacherSubjectConverter.DTO_to_Entity(t));
         }
-        timePlace.setTeacher_subjects(teacher_subjects);
+        timePlace.setTeacherSubjects(teacherSubjects);
 
         return timePlace;
     }
@@ -57,9 +57,9 @@ public class TimePlaceConverter {
         }
         timePlaceDTO.setRequestDTOS(requestDTOS);
 
-        List<Teacher_Subject> teacher_subjects = timePlace.getTeacher_subjects();
+        List<TeacherSubject> teacherSubjects = timePlace.getTeacherSubjects();
         List<TeacherSubjectDTO> teacherSubjectDTOS = new LinkedList<>();
-        for(Teacher_Subject t : teacher_subjects){
+        for(TeacherSubject t : teacherSubjects){
             teacherSubjectDTOS.add(TeacherSubjectConverter.Entity_To_DTO(t));
         }
         timePlaceDTO.setTeacherSubjectDTOS(teacherSubjectDTOS);

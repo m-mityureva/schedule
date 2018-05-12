@@ -45,7 +45,10 @@
 
                     <span>Курс</span>
                     <select class="form-control dropdown">
-                        <option>1</option>
+                        <option> -- </option>
+                        <option th:each="courseNum : ${courses}"
+                                th:value="${courseNum}"
+                                th:text="${courseNum}"></option>
                     </select>
                     <span>Группа</span>
                     <select class="form-control dropdown">

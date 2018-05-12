@@ -3,7 +3,7 @@ package vsu.data_operations.converters;
 import vsu.data_operations.dto.TeacherDTO;
 import vsu.data_operations.dto.TeacherSubjectDTO;
 import vsu.data_operations.entities.Teacher;
-import vsu.data_operations.entities.Teacher_Subject;
+import vsu.data_operations.entities.TeacherSubject;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -18,12 +18,12 @@ public class TeacherConverter {
         teacher.setId(teacherDTO.getId());
         teacher.setMail(teacherDTO.getMail());
 
-        List<Teacher_Subject> teacher_subjects = new LinkedList<>();
+        List<TeacherSubject> teacher_subjects = new LinkedList<>();
         List<TeacherSubjectDTO> teacherSubjectDTOS = teacherDTO.getTeacherSubjectDTOS();
         for(TeacherSubjectDTO t : teacherSubjectDTOS){
             teacher_subjects.add(TeacherSubjectConverter.DTO_to_Entity(t));
         }
-        teacher.setTeacher_subjects(teacher_subjects);
+        teacher.setTeacherSubjects(teacher_subjects);
 
         return teacher;
     }
@@ -37,9 +37,9 @@ public class TeacherConverter {
         teacherDTO.setId(teacher.getId());
         teacherDTO.setMail(teacher.getMail());
 
-        List<Teacher_Subject> teacher_subjects = teacher.getTeacher_subjects();
+        List<TeacherSubject> teacher_subjects = teacher.getTeacherSubjects();
         List<TeacherSubjectDTO> teacherSubjectDTOS = new LinkedList<>();
-        for(Teacher_Subject t : teacher_subjects){
+        for(TeacherSubject t : teacher_subjects){
             teacherSubjectDTOS.add(TeacherSubjectConverter.Entity_To_DTO(t));
         }
         teacherDTO.setTeacherSubjectDTOS(teacherSubjectDTOS);

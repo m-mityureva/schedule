@@ -4,25 +4,31 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import vsu.data_operations.services.GroupService;
+import vsu.data_operations.services.StudentGroupService;
+
 
 @Controller
-@RequestMapping("/schedule")
+@RequestMapping("/")
 public class ScheduleController {
-    private final GroupService groupService;
+    private final StudentGroupService studentGroupService;
 
-    public ScheduleController(GroupService groupService) {
-        this.groupService = groupService;
+    public ScheduleController(StudentGroupService studentGroupService) {
+        this.studentGroupService = studentGroupService;
     }
 
-    @GetMapping("/{name}")
-    public @ResponseBody
-    ModelAndView get(@PathVariable String name, Model model) {
-        return new ModelAndView(name);
+    @RequestMapping(value = {""}, method = RequestMethod.GET)
+    public String getIndex(Model model){
+        //ModelAndView model = new ModelAndView("index");
+
+        Iterable<Integer> courses = studentGroupService.getCourseNumbers();
+
+        model.addAttribute("courses", courses);
+
+        return "index";
     }
 
 
-    @RequestMapping(value = {"/"}, method = RequestMethod.GET)
+    //@RequestMapping(value = {"/"}, method = RequestMethod.GET)
     public String index(){
         return "login";
     }

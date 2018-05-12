@@ -6,7 +6,7 @@ import java.util.List;
 public class ScheduleDTO {
     private long id;
 
-    private GroupDTO group;
+    private StudentGroupDTO group;
 
     private TeacherSubjectDTO teacher_subject;
 
@@ -24,11 +24,11 @@ public class ScheduleDTO {
         this.teacher_subject = teacher_subject;
     }
 
-    public GroupDTO getGroup() {
+    public StudentGroupDTO getGroup() {
         return group;
     }
 
-    public void setGroup(GroupDTO group) {
+    public void setGroup(StudentGroupDTO group) {
         this.group = group;
     }
 

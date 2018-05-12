@@ -5,10 +5,12 @@ import vsu.data_operations.entities.Schedule;
 import java.util.LinkedList;
 import java.util.List;
 
-public class GroupDTO {
+public class StudentGroupDTO {
     private long id;
 
     private int number;
+
+    private int subnumber;
 
     private int course;
 
@@ -20,7 +22,7 @@ public class GroupDTO {
 
     private List<ScheduleDTO> scheduleDTOS;
 
-    public GroupDTO() {
+    public StudentGroupDTO() {
         studentDTOS = new LinkedList<>();
         requestDTOS = new LinkedList<>();
         scheduleDTOS = new LinkedList<>();
@@ -80,5 +82,13 @@ public class GroupDTO {
 
     public void setScheduleDTOS(List<ScheduleDTO> scheduleDTOS) {
         this.scheduleDTOS = scheduleDTOS;
+    }
+
+    public int getSubnumber() {
+        return subnumber;
+    }
+
+    public void setSubnumber(int subnumber) {
+        this.subnumber = subnumber;
     }
 }

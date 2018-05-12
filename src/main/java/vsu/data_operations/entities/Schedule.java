@@ -11,12 +11,12 @@ public class Schedule {
     private long id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ID_Group")
-    private Group group;
+    @JoinColumn(name = "ID_StudentGroup")
+    private StudentGroup studentGroup;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ID_Teacher_Subject")
-    private Teacher_Subject teacher_subject;
+    @JoinColumn(name = "ID_TeacherSubject")
+    private TeacherSubject teacherSubject;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "schedule",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Request> requests;
@@ -32,20 +32,20 @@ public class Schedule {
         this.id = id;
     }
 
-    public Teacher_Subject getTeacher_subject() {
-        return teacher_subject;
+    public TeacherSubject getTeacherSubject() {
+        return teacherSubject;
     }
 
-    public void setTeacher_subject(Teacher_Subject teacher_subject) {
-        this.teacher_subject = teacher_subject;
+    public void setTeacherSubject(TeacherSubject teacherSubject) {
+        this.teacherSubject = teacherSubject;
     }
 
-    public Group getGroup() {
-        return group;
+    public StudentGroup getStudentGroup() {
+        return studentGroup;
     }
 
-    public void setGroup(Group group) {
-        this.group = group;
+    public void setStudentGroup(StudentGroup studentGroup) {
+        this.studentGroup = studentGroup;
     }
 
     public List<Request> getRequests() {

@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Teacher_Subject")
-public class Teacher_Subject {
+@Table(name = "TeacherSubject")
+public class TeacherSubject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -26,10 +26,10 @@ public class Teacher_Subject {
     @JoinColumn(name = "ID_Subject")
     private Subject subject;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "teacher_subject", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "teacherSubject", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Schedule> schedules;
 
-    public Teacher_Subject() {
+    public TeacherSubject() {
     }
 
     public long getId() {

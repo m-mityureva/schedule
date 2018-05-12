@@ -14,9 +14,9 @@ public class ScheduleConverter {
             return null;
         Schedule schedule = new Schedule();
 
-        schedule.setGroup(GroupConverter.DTO_to_Entity(scheduleDTO.getGroup()));
+        schedule.setStudentGroup(StudentGroupConverter.DTO_to_Entity(scheduleDTO.getGroup()));
         schedule.setId(scheduleDTO.getId());
-        schedule.setTeacher_subject(TeacherSubjectConverter.DTO_to_Entity(scheduleDTO.getTeacher_subject()));
+        schedule.setTeacherSubject(TeacherSubjectConverter.DTO_to_Entity(scheduleDTO.getTeacher_subject()));
 
         List<Request> requests = new LinkedList<>();
         List<RequestDTO> requestDTOS = scheduleDTO.getRequestDTOS();
@@ -33,9 +33,9 @@ public class ScheduleConverter {
             return null;
         ScheduleDTO scheduleDTO = new ScheduleDTO();
 
-        scheduleDTO.setGroup(GroupConverter.Entity_to_DTO(schedule.getGroup()));
+        scheduleDTO.setGroup(StudentGroupConverter.Entity_to_DTO(schedule.getStudentGroup()));
         scheduleDTO.setId(scheduleDTO.getId());
-        scheduleDTO.setTeacher_subject(TeacherSubjectConverter.Entity_To_DTO(schedule.getTeacher_subject()));
+        scheduleDTO.setTeacher_subject(TeacherSubjectConverter.Entity_To_DTO(schedule.getTeacherSubject()));
 
         List<Request> requests = schedule.getRequests();
         List<RequestDTO> requestDTOS = new LinkedList<>();
