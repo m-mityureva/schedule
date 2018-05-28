@@ -45,7 +45,7 @@
 
                     <span>Курс</span>
                     <select class="form-control dropdown">
-                        <option> -- </option>
+                        <option th:value="-1"> -- </option>
                         <option th:each="courseNum : ${courses}"
                                 th:value="${courseNum}"
                                 th:text="${courseNum}"></option>
@@ -56,7 +56,8 @@
                     </select>
                     <span>Неделя</span>
                     <select class="form-control dropdown">
-                        <option>Числитель</option>
+                        <option th:value="odd">Числитель</option>
+                        <option th:value="even">Знаменатель</option>
                     </select>
 
                 </div>
