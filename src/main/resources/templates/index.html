@@ -2,9 +2,11 @@
       xmlns:th="http://www.thymeleaf.org">
     <head>
         <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/lib/bootstrap-datetimepicker-master/css/bootstrap-datetimepicker.min.css">
         <link rel="stylesheet" href="styles/schedule.css">
         <script src="lib/jquery/jquery-3.2.1.min.js"></script>
         <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/lib/bootstrap-datetimepicker-master/js/bootstrap-datetimepicker.min.js"></script>
     </head>
     <body>
     <div id="header" class="header">
@@ -26,6 +28,7 @@
                         <a class=" dropdown-item">Мои оповещения (2)</a>
                         <a class=" dropdown-item">Мои пары</a>
                         <a class=" dropdown-item">Расписание</a>
+                        <a class=" dropdown-item">Выйти</a>
                     </div>
                 </div>
 
@@ -60,7 +63,7 @@
             </div>
 
             <div  class="col-lg-10">
-                <table class="table table-striped">
+                <table class="table table-striped" onclick="$('#cteate_notification_modal').modal('show')">
                     <thead>
                     <tr>
                         <th></th>
@@ -145,5 +148,6 @@
     </div>
 
 
+    <div th:replace="fragments/cteate_notification_modal::cteate_notification_modal"></div>
     </body>
 </html>

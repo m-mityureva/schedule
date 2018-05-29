@@ -50,9 +50,9 @@
 .buttons-column a{
     margin-left: 20px;
 }
-
 .modal-sm {
-    width: 400px;
+    width: 600px; !important;
+    max-width: 600px;
 }
 
 .modal-xs {
